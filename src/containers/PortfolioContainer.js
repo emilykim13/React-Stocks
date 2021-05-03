@@ -7,12 +7,18 @@ class PortfolioContainer extends Component {
     return (
       <div>
         <h2>My Portfolio</h2>
-        {this.props.portfolioStocks.map(stock=>{
-          return <Stock transaction={this.props.transaction} key={stock.id} stock={stock} />
-          })
-        }
+        {this.props.stocks.map(stock => {
+          return <Stock 
+            name={stock.name} 
+            stock={stock}
+            price={stock.price} 
+            type={stock.type} 
+            ticker={stock.ticker} 
+            clickOnFunction={this.props.takeAwayStock}
+          /> 
+        })}
       </div>
-    )
+    );
   }
 
 }
