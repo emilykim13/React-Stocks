@@ -68,9 +68,7 @@ class MainContainer extends Component {
   }
 
   filterType=(type)=>{
-    console.log(type)
-    let filterArr = [...this.state.stocks]
-    let filtered = filterArr.filter(stock=>{
+    let filtered = this.state.stocks.filter(stock=>{
       return stock.type.includes(type)
     })
     this.setState({
