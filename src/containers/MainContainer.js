@@ -21,23 +21,19 @@ class MainContainer extends Component {
     }))
   }
 
-  addToPortfolio = (stock, id) => {
-    if(this.state.stocks.includes(stock)){
-      let currentStocks = [...this.state.stocks]
-      let chosenStock = currentStocks.find(stock => {
-        return stock.id === id
-      })
+  addToPortfolio = (stock) => {
+    if(!this.state.portfolioStocks.includes(stock)) {
       this.setState({
-        portfolioStocks: [...this.state.portfolioStocks, chosenStock]
+        portfolioStocks: [...this.state.portfolioStocks, stock]
       })
     }
   }
 
-  takeAwayStock = (stock, id) => {
+  takeAwayStock = (stock) => {
     if(this.state.portfolioStocks.includes(stock)){
       let currentPStocks = [...this.state.portfolioStocks]
-      let newPortfolioStocksArr = currentPStocks.filter(stock => {
-        return stock.id !== id
+      let newPortfolioStocksArr = currentPStocks.filter(portStock => {
+        return portStock !== stock
       })
       this.setState({
         portfolioStocks: newPortfolioStocksArr
